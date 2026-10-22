@@ -1,18 +1,164 @@
-body{
-    font-family: Arial, sans-serif;
-    text-align:center;
-    margin-top:80px;
-    background:#f5f5f5;
+* {
+  box-sizing: border-box;
 }
 
-button{
-    padding:12px 25px;
-    font-size:16px;
-    cursor:pointer;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #172033;
 }
 
-#result{
-    margin-top:20px;
-    font-size:18px;
-    color:green;
+.container {
+  width: min(900px, 92%);
+  margin: 50px auto;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+header h1 {
+  margin-bottom: 8px;
+  font-size: 32px;
+}
+
+header p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.note-form,
+.note-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
+}
+
+.note-form {
+  margin-bottom: 32px;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 13px 14px;
+  font: inherit;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 16px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.notes-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.notes-list {
+  display: grid;
+  gap: 16px;
+}
+
+.note-card h3 {
+  margin: 0 0 12px;
+  overflow-wrap: anywhere;
+}
+
+.note-card p {
+  color: #475569;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.note-date {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.note-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+button.secondary {
+  background: #e2e8f0;
+  color: #172033;
+}
+
+button.danger {
+  background: #dc2626;
+}
+
+#status {
+  min-height: 24px;
+  margin: 14px 0;
+  color: #475569;
+}
+
+.empty-state {
+  padding: 28px;
+  text-align: center;
+  color: #64748b;
+  background: #ffffff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 28px auto;
+  }
+
+  header h1 {
+    font-size: 27px;
+  }
+
+  .note-form,
+  .note-card {
+    padding: 17px;
+  }
+
+  .note-actions button {
+    flex: 1;
+  }
 }
