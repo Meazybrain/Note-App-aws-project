@@ -108,3 +108,27 @@ Through this project, I practised:
 **Azeez Sodiq Oluwasegun (MeazyBrain)**
 
 GitHub: [Meazybrain](https://github.com/Meazybrain)
+
+
+
+
+
+## Architecture
+
+```mermaid
+flowchart TD
+    U["User's Browser"]
+    N["Nginx<br/>HTTP :80"]
+    A["Node.js + Express<br/>REST API :3000"]
+    P["PM2<br/>Process Manager"]
+    R[("Amazon RDS<br/>MySQL :3306")]
+    SG["RDS Security Group<br/>MySQL access from EC2 SG"]
+
+    U -->|"HTTP :80"| N
+    N -->|"Proxy to localhost:3000"| A
+    P -.->|"Keeps app running"| A
+    A -->|"SQL connection"| R
+    SG -.->|"Restricts access"| R
+```
+
+**Request flow:** The browser sends HTTP requests to Nginx on EC2. Nginx forwards them to the Node.js/Express API, which communicates with Amazon RDS for MySQL. PM2 manages the application process, while the RDS security group restricts database access.
